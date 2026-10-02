@@ -33,8 +33,7 @@ AI Memory Vault 2.0 is a personal digital memory management system designed to s
 
 ### Additional Technologies
 - Progressive Web App (PWA)
-- Electron
-
+  
 ## 📂 Project Structure
 
 ```text
