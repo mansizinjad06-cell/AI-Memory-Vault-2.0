@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment variables
+.env
+backend/.env
+frontend/.env
+
+# Build files
+dist/
+frontend/dist/
+release/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+
+# Electron temporary files
+out/
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3

@@ -1,0 +1,54 @@
+{
+  "name": "ai-memory-vault-2-0",
+  "version": "1.0.0",
+  "description": "AI Memory Vault 2.0 - Personal Memory Management System",
+  "main": "electron/main.cjs",
+  "author": "Mansi Zinjad",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview",
+    "backend": "node backend/server.js",
+    "electron:dev": "concurrently -k \"npm run dev\" \"npm run backend\" \"wait-on http://localhost:5173 http://localhost:5000 && electron .\"",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "electron": "^44.4.3",
+    "electron-builder": "^26.15.3",
+    "vite-plugin-pwa": "^1.3.0",
+    "wait-on": "^9.1.0"
+  },
+  "build": {
+    "appId": "com.mansi.aimemoryvault",
+    "productName": "AI Memory Vault 2.0",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "frontend/dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
